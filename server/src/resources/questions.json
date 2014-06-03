@@ -1,0 +1,41 @@
+{
+  "title": "Parcial II",
+  "questions": [
+    {
+      "text": "¿Quien descubrió america?",
+      "options": [
+        {
+          "text": "Cristobal Colón",
+          "valid": true
+        },
+        {
+          "text": "Alejandro Mango"
+        },
+        {
+          "text": "Alejandro Mango"
+        },
+        {
+          "text": "Alejandro Mango"
+        }
+      ]
+    },
+    {
+      "text": "¿Quien planteó el Evolucionismo?",
+      "options": [
+        {
+          "text": "Charles Darwin",
+          "valid": true
+        },
+        {
+          "text": "Alejandro Mango"
+        },
+        {
+          "text": "Alejandro Mango"
+        },
+        {
+          "text": "Alejandro Mango"
+        }
+      ]
+    }
+  ]
+}
