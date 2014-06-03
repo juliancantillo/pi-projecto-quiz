@@ -6,6 +6,7 @@
 package gui;
 
 import entity.Quiz;
+import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -30,11 +31,16 @@ import server.DataHandler;
  */
 public class ServerForm extends JFrame implements ActionListener {
 
+  private JLabel lblStatus, lblQuiz;
+  private QuestionsList lstQuestions;
+  
   public ServerForm() {
     super("Server");
-
+    setLayout(new BorderLayout(R.W, R.H));
     setJMenuBar(mnActions());
-    add(pnlStatus());
+    add(pnlStatus(), BorderLayout.NORTH);
+    
+    add(pnlQuestions(), BorderLayout.CENTER);
 
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     setSize(500, 300);
@@ -72,11 +78,19 @@ public class ServerForm extends JFrame implements ActionListener {
   private JPanel pnlStatus() {
     JPanel panel = new JPanel();
 
-    JLabel lblStatus = new JLabel(String.format(R.STR_STATUS, "Prueba"));
+    lblStatus = new JLabel(String.format(R.STR_STATUS, "Prueba"));
+    lblQuiz = new JLabel(String.format(R.STR_CURRENT_QUIZ, server.Server.quiz.getTitle()));
 
     panel.add(lblStatus);
+    panel.add(lblQuiz);
 
     return panel;
+  }
+  
+  private JPanel pnlQuestions(){
+    lstQuestions = new QuestionsList(server.Server.quiz);
+    
+    return lstQuestions;
   }
 
   @Override
@@ -103,8 +117,13 @@ public class ServerForm extends JFrame implements ActionListener {
 
         try {
           Quiz quiz = dataHandler.loadQuiz(file);
+          server.Server.quiz = quiz;
           
           JOptionPane.showMessageDialog(this, String.format(R.QUIZ_LOADED, quiz.getTitle()));
+          lblQuiz.setText(String.format(R.STR_CURRENT_QUIZ, quiz.getTitle()));
+          
+          lstQuestions.setLstQuestions(server.Server.quiz);
+          
         } catch (IOException ex) {
           JOptionPane.showMessageDialog(this, R.FILE_NOT_FOUND);
         }

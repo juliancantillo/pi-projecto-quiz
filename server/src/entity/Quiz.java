@@ -17,6 +17,15 @@ public class Quiz {
   private String title;
   private ArrayList<Question> questions;
 
+  public Quiz(String title, ArrayList<Question> questions) {
+    this.title = title;
+    this.questions = questions;
+  }
+
+  public Quiz() {
+    this.questions = new ArrayList();
+  }
+
   public String getTitle() {
     return title;
   }

@@ -41,7 +41,10 @@ public class Question {
   public void setOptions(ArrayList options) {
     this.options = options;
   }
-  
-  
+
+  @Override
+  public String toString() {
+    return text;
+  }
 
 }

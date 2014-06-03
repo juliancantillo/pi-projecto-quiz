@@ -6,6 +6,7 @@
 
 package server;
 
+import entity.Quiz;
 import gui.ServerForm;
 
 /**
@@ -14,6 +15,7 @@ import gui.ServerForm;
  */
 public class Server {
   
+  public static Quiz quiz = new Quiz();
   private final ServerForm mainForm;
 
   public Server() {

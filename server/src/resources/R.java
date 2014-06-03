@@ -17,6 +17,7 @@ public class R {
   public static int W = 10;
   public static int H = 10;
   public static String STR_STATUS = "Estado del Servidor: %s";
+  public static String STR_CURRENT_QUIZ = "Cuestionario Actual: %s";
   public static String STR_CREATE_QUESTION = "Crear Pregunta";
   public static String STR_CREATE_QUIZ = "Crear Cuestionario";
   public static String STR_QUESTION_TEXT = "Pregunta";
